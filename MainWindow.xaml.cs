@@ -84,8 +84,9 @@ namespace Avalonia
         }
         private void ChangePlaylist_Button(object sender, RoutedEventArgs e) //TODO add parsing
         {
-            //if(Playlist_box.SelectedIndex==0)
-            for (int i = 0; i < 3; i++)//TODO change counter
+            doc = web.Load(url[Playlist_box.SelectedIndex]);
+            //doc.DocumentNode.SelectNodes("//div[@class=\"_2OACy\"]").Count
+            for (int i = 0; i < 3; i++)//TODO change counter(doc.DocumentNode.SelectNodes("/html/body/div[1]/div[1]/div[5]/div/div[1]/div/div[3]/div[2]/div/div/div[@class='_2OACy']").Count)
             {
                 // Create Grid
                 Grid myGrid = new Grid();

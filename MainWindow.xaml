@@ -17,6 +17,6 @@
         </ListBox>
         <ListBox Name="Songs_box" Grid.Row="2" Background="Lavender" HorizontalContentAlignment="Stretch" >
         </ListBox>
-        <Button Click="ChangePlaylist_Button" Content="Change" HorizontalAlignment="Right" Grid.Row="1" VerticalAlignment="Center" Margin="10"/>
+        <Button Click="ChangePlaylist_Button" Content="Change" HorizontalAlignment="Right" Grid.Row="1" VerticalAlignment="Center" Margin="10" Padding="5"/>
     </Grid>
 </Window>
