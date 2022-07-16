@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "E8TtAozYuenpy9kaViZkHSSxEdRWws3Ey6nOQlPXecIf39lNY0frL560nbeYnTUpFla/WgLPuyd0RU2AzTeCJw==",
+  "dgSpecHash": "xh5cH3pWNn31EYV1P/upKyJkclDgs8ezYnRfZvwvTwsJgSaXYXb+Y9BrVXDewJ8g2Lm1NPbqYXv4OU5Ym+4QDQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\si010\\source\\repos\\Avalonia\\Avalonia.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\si010\\.nuget\\packages\\htmlagilitypack\\1.11.43\\htmlagilitypack.1.11.43.nupkg.sha512"
+  ],
   "logs": []
 }
