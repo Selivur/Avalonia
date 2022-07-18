@@ -85,8 +85,11 @@ namespace Avalonia
         private void ChangePlaylist_Button(object sender, RoutedEventArgs e) //TODO add parsing
         {
             doc = web.Load(url[Playlist_box.SelectedIndex]);
-            //doc.DocumentNode.SelectNodes("//div[@class=\"_2OACy\"]").Count
-            for (int i = 0; i < 3; i++)//TODO change counter(doc.DocumentNode.SelectNodes("/html/body/div[1]/div[1]/div[5]/div/div[1]/div/div[3]/div[2]/div/div/div[@class='_2OACy']").Count)
+            var nameNodes = doc.DocumentNode.SelectNodes("//td/div/a/span[@itemprop='name']");
+            var artistNodes = doc.DocumentNode.SelectNodes("//td/div/a[@itemprop='byArtist']");
+            var albumNodes = doc.DocumentNode.SelectNodes("//td/div/a[@itemprop='inAlbum']");
+            var timeNodes = doc.DocumentNode.SelectNodes("//td/div[@class='wrapper ellipsis timestamp']");
+            for (int i = 0; i < nameNodes.Count; i++)
             {
                 // Create Grid
                 Grid myGrid = new Grid();
@@ -96,35 +99,41 @@ namespace Avalonia
                 ColumnDefinition colDef2 = new ColumnDefinition();
                 ColumnDefinition colDef3 = new ColumnDefinition();
                 ColumnDefinition colDef4 = new ColumnDefinition();
+                colDef2.Width = new GridLength(0.3, GridUnitType.Star);
+                colDef4.Width = new GridLength(0.1, GridUnitType.Star);
                 myGrid.ColumnDefinitions.Add(colDef1);
                 myGrid.ColumnDefinitions.Add(colDef2);
                 myGrid.ColumnDefinitions.Add(colDef3);
                 myGrid.ColumnDefinitions.Add(colDef4);
                 // Add song name to the Grid
                 TextBlock songName = new TextBlock();
-                songName.Text = "songName"; 
+                songName.Text = nameNodes[i].InnerText; 
                 songName.FontSize = 14;
+                songName.TextWrapping=TextWrapping.Wrap;
                 songName.TextAlignment = TextAlignment.Center;
                 Grid.SetColumn(songName, 0);
                 myGrid.Children.Add(songName);
                 // Add author name to the Grid
-                TextBlock authorName = new TextBlock();
-                authorName.Text = "authorName";
-                authorName.FontSize = 14;
-                authorName.TextAlignment = TextAlignment.Center;
-                Grid.SetColumn(authorName, 1);
-                myGrid.Children.Add(authorName);
+                TextBlock artistName = new TextBlock();
+                artistName.Text = artistNodes[i].InnerText;
+                artistName.FontSize = 14;
+                songName.TextWrapping = TextWrapping.Wrap;
+                artistName.TextAlignment = TextAlignment.Center;
+                Grid.SetColumn(artistName, 1);
+                myGrid.Children.Add(artistName);
                 // Add album name to the Grid
                 TextBlock albumName = new TextBlock();
-                albumName.Text = "albumName";
+                albumName.Text = albumNodes[i].InnerText;
                 albumName.FontSize = 14;
+                songName.TextWrapping = TextWrapping.Wrap;
                 albumName.TextAlignment = TextAlignment.Center;
                 Grid.SetColumn(albumName, 2);
                 myGrid.Children.Add(albumName);
                 // Add duration to the Grid
                 TextBlock duration = new TextBlock();
-                duration.Text = "duration";
+                duration.Text = timeNodes[i].InnerText.Trim();
                 duration.FontSize = 14;
+                songName.TextWrapping = TextWrapping.Wrap;
                 duration.TextAlignment = TextAlignment.Center;
                 Grid.SetColumn(duration, 3);
                 myGrid.Children.Add(duration);
