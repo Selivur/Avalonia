@@ -8,15 +8,29 @@
         Title="Avalonia" Height="500" Width="1000"
         Loaded="Window_Loaded">
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="0.3*"/>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="0.1*"/>
+            <ColumnDefinition Width="0.045*"/>
+        </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="0.5*"/>
             <RowDefinition Height="0.2*"/>
+            <RowDefinition Height="0.2*"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        <ListBox Name="Playlist_box" Background="Lavender" HorizontalContentAlignment="Stretch" SelectedIndex="0">
+        <ListBox Name="Playlist_box" Background="Lavender" HorizontalContentAlignment="Stretch" SelectedIndex="0" Grid.ColumnSpan="5">
         </ListBox>
-        <ListBox Name="Songs_box" Grid.Row="2" Background="Lavender" HorizontalContentAlignment="Stretch" >
+        <Button Click="ChangePlaylist_Button" Content="Change" HorizontalAlignment="Right" Grid.Row="1" VerticalAlignment="Center" Margin="10" Padding="5" Grid.Column="2" Grid.ColumnSpan="3"/>
+        <TextBlock x:Name="textBlock" HorizontalAlignment="Center" Grid.Row="2" TextWrapping="Wrap" Text="Track" VerticalAlignment="Center" FontWeight="Bold" FontSize="16"/>
+        <TextBlock x:Name="textBlock1" Grid.Column="1" HorizontalAlignment="Center" Grid.Row="2" TextWrapping="Wrap" Text="Artist" VerticalAlignment="Center" FontWeight="Bold" FontSize="16"/>
+        <TextBlock x:Name="textBlock2" Grid.Column="2" HorizontalAlignment="Center" Grid.Row="2" TextWrapping="Wrap" Text="Album" VerticalAlignment="Center" FontWeight="Bold" FontSize="16"/>
+        <TextBlock x:Name="textBlock3" Grid.Column="3" HorizontalAlignment="Center" Grid.Row="2" TextWrapping="Wrap" Text="Time" VerticalAlignment="Center" FontWeight="Bold" FontSize="14"/>
+        <ListBox ScrollViewer.VerticalScrollBarVisibility="Visible" Name="Songs_box" Grid.Row="3" Background="Lavender" HorizontalContentAlignment="Stretch" Grid.ColumnSpan="5">
         </ListBox>
-        <Button Click="ChangePlaylist_Button" Content="Change" HorizontalAlignment="Right" Grid.Row="1" VerticalAlignment="Center" Margin="10" Padding="5"/>
+        
+
     </Grid>
 </Window>

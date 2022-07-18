@@ -33,6 +33,17 @@ namespace Avalonia
             url.Add("https://www.deezer.com/en/album/274337972");
             
         }
+        private TextBlock CreateStandartTextBlock(string str, int column)
+        {
+            TextBlock textBlock = new TextBlock();
+            textBlock.Text = str;
+            textBlock.FontSize = 14;
+            textBlock.VerticalAlignment = VerticalAlignment.Center;
+            textBlock.TextAlignment = TextAlignment.Center;
+            Grid.SetColumn(textBlock, column);
+            return textBlock;
+            
+        }
         public void Window_Loaded(object sender, RoutedEventArgs e)//TODO add Parse
         {
             foreach (string link in url)
@@ -40,7 +51,6 @@ namespace Avalonia
                 doc = web.Load(link);
                 // Create Grid
                 Grid myGrid = new Grid();
-                myGrid.ShowGridLines = true;
                 // Define Columns
                 ColumnDefinition colDef1 = new ColumnDefinition();
                 ColumnDefinition colDef2 = new ColumnDefinition();
@@ -71,14 +81,8 @@ namespace Avalonia
                 Grid.SetColumn(albumName, 1);
                 myGrid.Children.Add(albumName);
                 // Add description to the Grid
-                TextBlock description = new TextBlock();
                 var descriptionText = doc.DocumentNode.SelectSingleNode("/html/head/meta[@property='description']");
-                description.Text = descriptionText == null ? "None" : descriptionText.GetAttributeValue("content", "");
-                description.FontSize = 14;
-                description.TextAlignment = TextAlignment.Center;
-                description.VerticalAlignment = VerticalAlignment.Center;
-                Grid.SetColumn(description, 2);
-                myGrid.Children.Add(description);
+                myGrid.Children.Add(CreateStandartTextBlock( descriptionText== null ? "None" : descriptionText.GetAttributeValue("content", ""), 2));
                 // Add Grid to the ListBox
                 Playlist_box.Items.Add(myGrid);
             }
@@ -96,7 +100,6 @@ namespace Avalonia
             {
                 // Create Grid
                 Grid myGrid = new Grid();
-                myGrid.ShowGridLines = true;
                 // Define Columns
                 ColumnDefinition colDef1 = new ColumnDefinition();
                 ColumnDefinition colDef2 = new ColumnDefinition();
@@ -108,35 +111,10 @@ namespace Avalonia
                 myGrid.ColumnDefinitions.Add(colDef2);
                 myGrid.ColumnDefinitions.Add(colDef3);
                 myGrid.ColumnDefinitions.Add(colDef4);
-                // Add song name to the Grid
-                TextBlock songName = new TextBlock();
-                songName.Text = nameNodes[i].InnerText; 
-                songName.FontSize = 14;
-                songName.TextAlignment = TextAlignment.Center;
-                Grid.SetColumn(songName, 0);
-                myGrid.Children.Add(songName);
-                // Add author name to the Grid
-                TextBlock artistName = new TextBlock();
-                artistName.Text = artistNodes[i].InnerText;
-                artistName.FontSize = 14;
-                artistName.TextAlignment = TextAlignment.Center;
-                Grid.SetColumn(artistName, 1);
-                myGrid.Children.Add(artistName);
-                // Add album name to the Grid
-                TextBlock albumName = new TextBlock();
-                albumName.Text = albumNodes[i].InnerText;
-                albumName.FontSize = 14;
-                albumName.TextAlignment = TextAlignment.Center;
-                Grid.SetColumn(albumName, 2);
-                myGrid.Children.Add(albumName);
-                // Add duration to the Grid
-                TextBlock duration = new TextBlock();
-                duration.Text = timeNodes[i].InnerText.Trim();
-                duration.FontSize = 14;
-                duration.TextAlignment = TextAlignment.Center;
-                Grid.SetColumn(duration, 3);
-                myGrid.Children.Add(duration);
-                // Add Grid to the ListBox
+                myGrid.Children.Add(CreateStandartTextBlock(nameNodes[i].InnerText, 0));
+                myGrid.Children.Add(CreateStandartTextBlock(artistNodes[i].InnerText, 1));
+                myGrid.Children.Add(CreateStandartTextBlock(albumNodes[i].InnerText, 2));
+                myGrid.Children.Add(CreateStandartTextBlock(timeNodes[i].InnerText.Trim(), 3));
                 Songs_box.Items.Add(myGrid);
             }
         }
