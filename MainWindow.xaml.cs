@@ -86,6 +86,7 @@ namespace Avalonia
         }
         private void ChangePlaylist_Button(object sender, RoutedEventArgs e) //TODO add parsing
         {
+            Songs_box.Items.Clear();
             doc = web.Load(url[Playlist_box.SelectedIndex]);
             var nameNodes = doc.DocumentNode.SelectNodes("//td/div/a/span[@itemprop='name']");
             var artistNodes = doc.DocumentNode.SelectNodes("//td/div/a[@itemprop='byArtist']");
