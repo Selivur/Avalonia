@@ -45,6 +45,7 @@ namespace Avalonia
                 ColumnDefinition colDef1 = new ColumnDefinition();
                 ColumnDefinition colDef2 = new ColumnDefinition();
                 ColumnDefinition colDef3 = new ColumnDefinition();
+                colDef1.Width = new GridLength(0.3, GridUnitType.Star);
                 colDef3.Width = new GridLength(2, GridUnitType.Star);
                 myGrid.ColumnDefinitions.Add(colDef1);
                 myGrid.ColumnDefinitions.Add(colDef2);
@@ -54,7 +55,7 @@ namespace Avalonia
                 albumImg.Width = 50;
                 BitmapImage myBitmapImage = new BitmapImage();
                 myBitmapImage.BeginInit();
-                myBitmapImage.UriSource = new Uri(doc.DocumentNode.SelectSingleNode("/html/head/meta[8]").GetAttributeValue("content", ""));
+                myBitmapImage.UriSource = new Uri(doc.DocumentNode.SelectSingleNode("/html/head/meta[@property='og:image']").GetAttributeValue("content", ""));
                 myBitmapImage.DecodePixelWidth = 50;
                 myBitmapImage.EndInit();
                 albumImg.Source = myBitmapImage;
@@ -62,7 +63,7 @@ namespace Avalonia
                 myGrid.Children.Add(albumImg);
                 // Add album name to the Grid
                 TextBlock albumName = new TextBlock();
-                albumName.Text = doc.DocumentNode.SelectSingleNode("/html/head/meta[6]").GetAttributeValue("content", "");
+                albumName.Text = doc.DocumentNode.SelectSingleNode("/html/head/meta[@property='og:title']").GetAttributeValue("content", "");
                 albumName.FontSize = 18;
                 albumName.TextAlignment = TextAlignment.Center;
                 albumName.VerticalAlignment = VerticalAlignment.Center;
@@ -71,7 +72,8 @@ namespace Avalonia
                 myGrid.Children.Add(albumName);
                 // Add description to the Grid
                 TextBlock description = new TextBlock();
-                description.Text = doc.DocumentNode.SelectSingleNode("/html/head/meta[7]").GetAttributeValue("content", "");
+                var descriptionText = doc.DocumentNode.SelectSingleNode("/html/head/meta[@property='description']");
+                description.Text = descriptionText == null ? "None" : descriptionText.GetAttributeValue("content", "");
                 description.FontSize = 14;
                 description.TextAlignment = TextAlignment.Center;
                 description.VerticalAlignment = VerticalAlignment.Center;
@@ -109,7 +111,6 @@ namespace Avalonia
                 TextBlock songName = new TextBlock();
                 songName.Text = nameNodes[i].InnerText; 
                 songName.FontSize = 14;
-                songName.TextWrapping=TextWrapping.Wrap;
                 songName.TextAlignment = TextAlignment.Center;
                 Grid.SetColumn(songName, 0);
                 myGrid.Children.Add(songName);
@@ -117,7 +118,6 @@ namespace Avalonia
                 TextBlock artistName = new TextBlock();
                 artistName.Text = artistNodes[i].InnerText;
                 artistName.FontSize = 14;
-                songName.TextWrapping = TextWrapping.Wrap;
                 artistName.TextAlignment = TextAlignment.Center;
                 Grid.SetColumn(artistName, 1);
                 myGrid.Children.Add(artistName);
@@ -125,7 +125,6 @@ namespace Avalonia
                 TextBlock albumName = new TextBlock();
                 albumName.Text = albumNodes[i].InnerText;
                 albumName.FontSize = 14;
-                songName.TextWrapping = TextWrapping.Wrap;
                 albumName.TextAlignment = TextAlignment.Center;
                 Grid.SetColumn(albumName, 2);
                 myGrid.Children.Add(albumName);
@@ -133,7 +132,6 @@ namespace Avalonia
                 TextBlock duration = new TextBlock();
                 duration.Text = timeNodes[i].InnerText.Trim();
                 duration.FontSize = 14;
-                songName.TextWrapping = TextWrapping.Wrap;
                 duration.TextAlignment = TextAlignment.Center;
                 Grid.SetColumn(duration, 3);
                 myGrid.Children.Add(duration);
