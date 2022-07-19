@@ -31,7 +31,9 @@ namespace Avalonia
             web = new HtmlWeb();
             url.Add("https://www.deezer.com/en/playlist/1479458365");
             url.Add("https://www.deezer.com/en/album/274337972");
-            
+            url.Add("https://www.deezer.com/en/playlist/2578576804");
+
+
         }
         private TextBlock CreateStandartTextBlock(string str, int column)
         {
@@ -81,7 +83,7 @@ namespace Avalonia
                 Grid.SetColumn(albumName, 1);
                 myGrid.Children.Add(albumName);
                 // Add description to the Grid
-                var descriptionText = doc.DocumentNode.SelectSingleNode("/html/head/meta[@property='description']");
+                var descriptionText = doc.DocumentNode.SelectSingleNode("/html/head/meta[@property='og:description']");
                 myGrid.Children.Add(CreateStandartTextBlock( descriptionText== null ? "None" : descriptionText.GetAttributeValue("content", ""), 2));
                 // Add Grid to the ListBox
                 Playlist_box.Items.Add(myGrid);
