@@ -1,10 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "xh5cH3pWNn31EYV1P/upKyJkclDgs8ezYnRfZvwvTwsJgSaXYXb+Y9BrVXDewJ8g2Lm1NPbqYXv4OU5Ym+4QDQ==",
+  "dgSpecHash": "wTJf3OXyF3jejMG9//pjKUcj+UvHvRRRXGB3WErFzATRbsCd8W1XrkpHNcy/kXM4Tvm4hzHrT+u431KP6OTR0g==",
   "success": true,
   "projectFilePath": "C:\\Users\\si010\\source\\repos\\Avalonia\\Avalonia.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\si010\\.nuget\\packages\\htmlagilitypack\\1.11.43\\htmlagilitypack.1.11.43.nupkg.sha512"
+    "C:\\Users\\si010\\.nuget\\packages\\htmlagilitypack\\1.11.43\\htmlagilitypack.1.11.43.nupkg.sha512",
+    "C:\\Users\\si010\\.nuget\\packages\\jetbrains.annotations\\2022.1.0\\jetbrains.annotations.2022.1.0.nupkg.sha512"
   ],
   "logs": []
 }

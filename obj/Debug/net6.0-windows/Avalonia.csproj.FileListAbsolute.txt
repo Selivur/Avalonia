@@ -21,3 +21,4 @@ C:\Users\si010\source\repos\Avalonia\obj\Debug\net6.0-windows\Avalonia.genruntim
 C:\Users\si010\source\repos\Avalonia\obj\Debug\net6.0-windows\ref\Avalonia.dll
 C:\Users\si010\source\repos\Avalonia\bin\Debug\net6.0-windows\HtmlAgilityPack.dll
 C:\Users\si010\source\repos\Avalonia\obj\Debug\net6.0-windows\Avalonia.csproj.CopyComplete
+C:\Users\si010\source\repos\Avalonia\bin\Debug\net6.0-windows\JetBrains.Annotations.dll

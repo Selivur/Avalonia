@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Avalonia.ViewModels;
 using HtmlAgilityPack;
 
 namespace Avalonia
@@ -28,26 +29,15 @@ namespace Avalonia
         public MainWindow()
         {
             InitializeComponent();
-            web = new HtmlWeb();
-            url.Add("https://www.deezer.com/en/playlist/1479458365");
-            url.Add("https://www.deezer.com/en/album/274337972");
-            url.Add("https://www.deezer.com/en/playlist/2578576804");
+            DataContext = new MainWindowViewModel();
 
 
-        }
-        private TextBlock CreateStandartTextBlock(string str, int column)
-        {
-            TextBlock textBlock = new TextBlock();
-            textBlock.Text = str;
-            textBlock.FontSize = 14;
-            textBlock.VerticalAlignment = VerticalAlignment.Center;
-            textBlock.TextAlignment = TextAlignment.Center;
-            Grid.SetColumn(textBlock, column);
-            return textBlock;
-            
         }
         public void Window_Loaded(object sender, RoutedEventArgs e)//TODO add Parse
         {
+            //DataContext = new MainWindowViewModel();
+        }
+        /*
             foreach (string link in url)
             {
                 doc = web.Load(link);
@@ -83,14 +73,13 @@ namespace Avalonia
                 Grid.SetColumn(albumName, 1);
                 myGrid.Children.Add(albumName);
                 // Add description to the Grid
-                var descriptionText = doc.DocumentNode.SelectSingleNode("/html/head/meta[@property='og:description']");
-                myGrid.Children.Add(CreateStandartTextBlock( descriptionText== null ? "None" : descriptionText.GetAttributeValue("content", ""), 2));
+                myGrid.Children.Add(CreateStandartTextBlock(doc.DocumentNode.SelectSingleNode("/html/head/meta[@property='og:description']").GetAttributeValue("content", ""), 2));
                 // Add Grid to the ListBox
                 Playlist_box.Items.Add(myGrid);
             }
             
         }
-        private void ChangePlaylist_Button(object sender, RoutedEventArgs e) //TODO add parsing
+        private void ChangePlaylistButton(object sender, RoutedEventArgs e) //TODO add parsing
         {
             Songs_box.Items.Clear();
             doc = web.Load(url[Playlist_box.SelectedIndex]);
@@ -119,6 +108,6 @@ namespace Avalonia
                 myGrid.Children.Add(CreateStandartTextBlock(timeNodes[i].InnerText.Trim(), 3));
                 Songs_box.Items.Add(myGrid);
             }
-        }
+        }*/
     }
 }
