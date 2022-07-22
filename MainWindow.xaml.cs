@@ -29,56 +29,16 @@ namespace Avalonia
         public MainWindow()
         {
             InitializeComponent();
-            DataContext = new MainWindowViewModel();
+            //DataContext = new MainWindowViewModel();
 
 
         }
         public void Window_Loaded(object sender, RoutedEventArgs e)//TODO add Parse
         {
-            //DataContext = new MainWindowViewModel();
+            DataContext = new MainWindowViewModel();
         }
         /*
-            foreach (string link in url)
-            {
-                doc = web.Load(link);
-                // Create Grid
-                Grid myGrid = new Grid();
-                // Define Columns
-                ColumnDefinition colDef1 = new ColumnDefinition();
-                ColumnDefinition colDef2 = new ColumnDefinition();
-                ColumnDefinition colDef3 = new ColumnDefinition();
-                colDef1.Width = new GridLength(0.3, GridUnitType.Star);
-                colDef3.Width = new GridLength(2, GridUnitType.Star);
-                myGrid.ColumnDefinitions.Add(colDef1);
-                myGrid.ColumnDefinitions.Add(colDef2);
-                myGrid.ColumnDefinitions.Add(colDef3);
-                // Add img to the Grid
-                Image albumImg = new Image();
-                albumImg.Width = 50;
-                BitmapImage myBitmapImage = new BitmapImage();
-                myBitmapImage.BeginInit();
-                myBitmapImage.UriSource = new Uri(doc.DocumentNode.SelectSingleNode("/html/head/meta[@property='og:image']").GetAttributeValue("content", ""));
-                myBitmapImage.DecodePixelWidth = 50;
-                myBitmapImage.EndInit();
-                albumImg.Source = myBitmapImage;
-                Grid.SetColumn(albumImg, 0);
-                myGrid.Children.Add(albumImg);
-                // Add album name to the Grid
-                TextBlock albumName = new TextBlock();
-                albumName.Text = doc.DocumentNode.SelectSingleNode("/html/head/meta[@property='og:title']").GetAttributeValue("content", "");
-                albumName.FontSize = 18;
-                albumName.TextAlignment = TextAlignment.Center;
-                albumName.VerticalAlignment = VerticalAlignment.Center;
-                albumName.FontWeight = FontWeights.Bold;
-                Grid.SetColumn(albumName, 1);
-                myGrid.Children.Add(albumName);
-                // Add description to the Grid
-                myGrid.Children.Add(CreateStandartTextBlock(doc.DocumentNode.SelectSingleNode("/html/head/meta[@property='og:description']").GetAttributeValue("content", ""), 2));
-                // Add Grid to the ListBox
-                Playlist_box.Items.Add(myGrid);
-            }
-            
-        }
+
         private void ChangePlaylistButton(object sender, RoutedEventArgs e) //TODO add parsing
         {
             Songs_box.Items.Clear();
