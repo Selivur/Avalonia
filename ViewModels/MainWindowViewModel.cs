@@ -34,6 +34,19 @@ namespace Avalonia.ViewModels
                 OnPropertyChanged();
             }
         }
+        private int _selector = 1;
+        public static int selector;
+
+        private List<Song> _songList = SongList.GetList(selector);//
+        public List<Song> songList
+        {
+            get => _songList;
+            set
+            {
+                _songList = value;
+                OnPropertyChanged();
+            }
+        }
         public RelayCommand ChangePlaylistButton { get; }
         private bool CanChangePlaylistButtonExecute(object arg) => true;
         private void OnChangePlaylistButtonExecute(object obj)

@@ -13,12 +13,14 @@ namespace Avalonia.Models
         {
             HtmlWeb web;
             HtmlDocument doc;
+            this.url = url;
             web = new HtmlWeb();
             doc = web.Load(url);
             plImgUrl = doc.DocumentNode.SelectSingleNode("/html/head/meta[@property='og:image']").GetAttributeValue("content", "");
             plName = doc.DocumentNode.SelectSingleNode("/html/head/meta[@property='og:title']").GetAttributeValue("content", "");
             plDescription = doc.DocumentNode.SelectSingleNode("/html/head/meta[@property='og:description']").GetAttributeValue("content", "");
         }
+        public string url { get; set; }
         public string plName { get; set; }
         public string plImgUrl { get; set; }
         public string plDescription { get; set; }

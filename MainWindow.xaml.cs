@@ -29,14 +29,11 @@ namespace Avalonia
         public MainWindow()
         {
             InitializeComponent();
-            //DataContext = new MainWindowViewModel();
-
-
-        }
-        public void Window_Loaded(object sender, RoutedEventArgs e)//TODO add Parse
-        {
             DataContext = new MainWindowViewModel();
+
+
         }
+
         /*
 
         private void ChangePlaylistButton(object sender, RoutedEventArgs e) //TODO add parsing
@@ -47,15 +44,6 @@ namespace Avalonia
             var artistNodes = doc.DocumentNode.SelectNodes("//td/div/a[@itemprop='byArtist']");
             var albumNodes = doc.DocumentNode.SelectNodes("//td/div/a[@itemprop='inAlbum']");
             var timeNodes = doc.DocumentNode.SelectNodes("//td/div[@class='wrapper ellipsis timestamp']");
-            for (int i = 0; i < nameNodes.Count; i++)
-            {
-                // Create Grid
-                Grid myGrid = new Grid();
-                // Define Columns
-                ColumnDefinition colDef1 = new ColumnDefinition();
-                ColumnDefinition colDef2 = new ColumnDefinition();
-                ColumnDefinition colDef3 = new ColumnDefinition();
-                ColumnDefinition colDef4 = new ColumnDefinition();
                 colDef2.Width = new GridLength(0.3, GridUnitType.Star);
                 colDef4.Width = new GridLength(0.1, GridUnitType.Star);
                 myGrid.ColumnDefinitions.Add(colDef1);
