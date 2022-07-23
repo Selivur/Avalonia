@@ -41,7 +41,7 @@ namespace Avalonia.ViewModels
                 OnPropertyChanged();
             }
         }
-        private List<Song> _songList;
+        private List<Song> _songList = SongList.GetList(_selector);
         public List<Song> songList
         {
             get => _songList;
