@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Avalonia"
         xmlns:vm="clr-namespace:Avalonia.ViewModels" 
         mc:Ignorable="d"
-        Title="{Binding Title}" Height="500" Width="1000">
+        Title="{Binding Title}" Height="600" Width="1200">
     
     
     
@@ -21,10 +21,9 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="0.5*"/>
             <RowDefinition Height="0.2*"/>
-            <RowDefinition Height="0.2*"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        <ListBox ItemsSource="{Binding playlistList}" ItemTemplate="{DynamicResource ListBoxTemplate1}" Name="Playlist_box" Background="Lavender" HorizontalContentAlignment="Stretch" SelectedIndex="{Binding selector}" Grid.ColumnSpan="5">
+        <ListBox ItemsSource="{Binding playlistList}" Grid.Row="0" ItemTemplate="{DynamicResource ListBoxTemplate1}" Name="Playlist_box" Background="Lavender" HorizontalContentAlignment="Stretch" SelectedIndex="{Binding selector}" Grid.ColumnSpan="5">
             <ListBox.Resources>
                 <DataTemplate x:Key="ListBoxTemplate1">
                     <Grid>
@@ -40,12 +39,11 @@
                 </DataTemplate>
             </ListBox.Resources>
         </ListBox>
-        <Button  Command="{Binding ChangePlaylistButton}" Content="Change" HorizontalAlignment="Right" Grid.Row="1" VerticalAlignment="Center" Margin="10" Padding="5" Grid.Column="2" Grid.ColumnSpan="3"/>
-        <TextBlock x:Name="textBlock" HorizontalAlignment="Center" Grid.Row="2" TextWrapping="Wrap" Text="Track" VerticalAlignment="Center" FontWeight="Bold" FontSize="16"/>
-        <TextBlock x:Name="textBlock1" Grid.Column="1" HorizontalAlignment="Center" Grid.Row="2" TextWrapping="Wrap" Text="Artist" VerticalAlignment="Center" FontWeight="Bold" FontSize="16"/>
-        <TextBlock x:Name="textBlock2" Grid.Column="2" HorizontalAlignment="Center" Grid.Row="2" TextWrapping="Wrap" Text="Album" VerticalAlignment="Center" FontWeight="Bold" FontSize="16"/>
-        <TextBlock x:Name="textBlock3" Grid.Column="3" HorizontalAlignment="Center" Grid.Row="2" TextWrapping="Wrap" Text="Time" VerticalAlignment="Center" FontWeight="Bold" FontSize="14"/>
-        <ListBox ItemsSource="{Binding songList}" ItemTemplate="{DynamicResource ListBoxTemplate2}" ScrollViewer.VerticalScrollBarVisibility="Visible" Name="Songs_box" Grid.Row="3" Background="Lavender" HorizontalContentAlignment="Stretch" Grid.ColumnSpan="5">
+        <TextBlock x:Name="textBlock" HorizontalAlignment="Center" Grid.Row="1" TextWrapping="Wrap" Text="Track" VerticalAlignment="Center" FontWeight="Bold" FontSize="16"/>
+        <TextBlock x:Name="textBlock1" Grid.Column="1" HorizontalAlignment="Center" Grid.Row="1" TextWrapping="Wrap" Text="Artist" VerticalAlignment="Center" FontWeight="Bold" FontSize="16"/>
+        <TextBlock x:Name="textBlock2" Grid.Column="2" HorizontalAlignment="Center" Grid.Row="1" TextWrapping="Wrap" Text="Album" VerticalAlignment="Center" FontWeight="Bold" FontSize="16"/>
+        <TextBlock x:Name="textBlock3" Grid.Column="3" HorizontalAlignment="Center" Grid.Row="1" TextWrapping="Wrap" Text="Time" VerticalAlignment="Center" FontWeight="Bold" FontSize="14"/>
+        <ListBox ItemsSource="{Binding songList}" ItemTemplate="{DynamicResource ListBoxTemplate2}" ScrollViewer.VerticalScrollBarVisibility="Visible" Name="Songs_box" Grid.Row="2" Background="Lavender" HorizontalContentAlignment="Stretch" Grid.ColumnSpan="5">
             <ListBox.Resources>
                 <DataTemplate x:Key="ListBoxTemplate2">
                     <Grid>

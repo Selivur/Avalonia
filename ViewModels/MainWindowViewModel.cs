@@ -12,7 +12,7 @@ namespace Avalonia.ViewModels
     {
         public MainWindowViewModel() 
         {
-            ChangePlaylistButton = new RelayCommand(OnChangePlaylistButtonExecute, CanChangePlaylistButtonExecute);
+            //ChangePlaylistButton = new RelayCommand(OnChangePlaylistButtonExecute, CanChangePlaylistButtonExecute);
         }
         private string _Title = "Avalonia";
         public string Title
@@ -34,10 +34,18 @@ namespace Avalonia.ViewModels
                 OnPropertyChanged();
             }
         }
-        private int _selector = 1;
-        public static int selector;
-
-        private List<Song> _songList = SongList.GetList(selector);//
+        private static int _selector = 0;
+        public  int selector
+        {
+            get => _selector;
+            set
+            {
+                _selector = value;
+                songList = SongList.GetList(selector);
+                OnPropertyChanged();
+            }
+        }
+        private List<Song> _songList = SongList.GetList(_selector);
         public List<Song> songList
         {
             get => _songList;
@@ -48,12 +56,10 @@ namespace Avalonia.ViewModels
             }
         }
         public RelayCommand ChangePlaylistButton { get; }
-        private bool CanChangePlaylistButtonExecute(object arg) => true;
+       /* private bool CanChangePlaylistButtonExecute(object arg) => true;
         private void OnChangePlaylistButtonExecute(object obj)
         {
-            //TODO что делает кнопка 
-            //TODO тут привязка
             OnPropertyChanged();
-        }
+        }*/
     }
 }
