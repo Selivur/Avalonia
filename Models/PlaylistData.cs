@@ -11,28 +11,16 @@ namespace Avalonia.Models
     {
         public PlaylistData(string url)
         {
-            HtmlWeb web;
-            HtmlDocument doc;
+            HtmlWeb web= new HtmlWeb();
+            HtmlDocument doc = web.Load(url);
             this.url = url;
-            web = new HtmlWeb();
-            doc = web.Load(url);
-            plImgUrl = doc.DocumentNode.SelectSingleNode("/html/head/meta[@property='og:image']").GetAttributeValue("content", "");
-            plName = doc.DocumentNode.SelectSingleNode("/html/head/meta[@property='og:title']").GetAttributeValue("content", "");
-            plDescription = doc.DocumentNode.SelectSingleNode("/html/head/meta[@property='og:description']").GetAttributeValue("content", "");
+            playlistImageUrl = doc.DocumentNode.SelectSingleNode("/html/head/meta[@property='og:image']").GetAttributeValue("content", "");
+            playlistName = doc.DocumentNode.SelectSingleNode("/html/head/meta[@property='og:title']").GetAttributeValue("content", "");
+            playlistDescription = doc.DocumentNode.SelectSingleNode("/html/head/meta[@property='og:description']").GetAttributeValue("content", "");
         }
         public string url { get; set; }
-        public string plName { get; set; }
-        public string plImgUrl { get; set; }
-        public string plDescription { get; set; }
-        /*public static PlaylistData[] GetPlaylistData()
-        {
-            var result = new PlaylistData[3];
-            {
-                new PlaylistData("https://www.deezer.com/en/playlist/1479458365");
-                new PlaylistData("https://www.deezer.com/en/album/274337972");
-                new PlaylistData("https://www.deezer.com/en/playlist/2578576804");
-            }
-            return result;
-        }*/
+        public string playlistName { get; set; }
+        public string playlistImageUrl { get; set; }
+        public string playlistDescription { get; set; }
     }
 }

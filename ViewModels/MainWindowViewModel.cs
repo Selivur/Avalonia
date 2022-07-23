@@ -20,6 +20,12 @@ namespace Avalonia.ViewModels
                 OnPropertyChanged();
             }
         }
+        private string[] urlList =
+        {
+            "https://www.deezer.com/en/playlist/1479458365",
+            "https://www.deezer.com/en/album/274337972",
+            "https://www.deezer.com/en/playlist/2578576804"
+        };
         private List<PlaylistData> _playlistList =PlaylistList.GetList();
         public List<PlaylistData> playlistList
         {

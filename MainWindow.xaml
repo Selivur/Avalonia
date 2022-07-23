@@ -32,9 +32,9 @@
                             <ColumnDefinition />
                             <ColumnDefinition Width="2*"/>
                         </Grid.ColumnDefinitions>
-                        <Image Source="{Binding plImgUrl}" Width="50" Grid.Column="0"/>
-                        <TextBlock Text="{Binding plName}"  Grid.Column="1" HorizontalAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Center" FontSize="16" FontWeight="Bold"/>
-                        <TextBlock Text="{Binding plDescription}" Grid.Column="2" HorizontalAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Center" FontSize="14"/>
+                        <Image Source="{Binding playlistImageUrl}" Width="50" Grid.Column="0"/>
+                        <TextBlock Text="{Binding playlistName}"  Grid.Column="1" HorizontalAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Center" FontSize="16" FontWeight="Bold"/>
+                        <TextBlock Text="{Binding playlistDescription}" Grid.Column="2" HorizontalAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Center" FontSize="14"/>
                     </Grid>
                 </DataTemplate>
             </ListBox.Resources>
@@ -56,7 +56,7 @@
                         <TextBlock Text="{Binding name}"  Grid.Column="0" HorizontalAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Center" FontSize="14" />
                         <TextBlock Text="{Binding artist}"  Grid.Column="1" HorizontalAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Center" FontSize="14" />
                         <TextBlock Text="{Binding album}"  Grid.Column="2" HorizontalAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Center" FontSize="14" />
-                        <TextBlock Text="{Binding time}" Grid.Column="3" HorizontalAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Center" FontSize="14"/>
+                        <TextBlock Text="{Binding duration}" Grid.Column="3" HorizontalAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Center" FontSize="14"/>
                     </Grid>
                 </DataTemplate>
             </ListBox.Resources>

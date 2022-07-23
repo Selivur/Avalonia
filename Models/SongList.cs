@@ -12,17 +12,15 @@ namespace Avalonia.Models
         public static List<Song> GetList(int index)
         {
             List<Song> list = new List<Song>();
-            HtmlWeb web;
-            HtmlDocument doc;
-            web = new HtmlWeb();
-            doc = web.Load(PlaylistList.GetList()[index].url);
+            HtmlWeb web = new HtmlWeb();
+            HtmlDocument doc= web.Load(PlaylistList.GetList()[index].url);
             var nameNodes = doc.DocumentNode.SelectNodes("//td/div/a/span[@itemprop='name']");
             var artistNodes = doc.DocumentNode.SelectNodes("//td/div/a[@itemprop='byArtist']");
             var albumNodes = doc.DocumentNode.SelectNodes("//td/div/a[@itemprop='inAlbum']");
-            var timeNodes = doc.DocumentNode.SelectNodes("//td/div[@class='wrapper ellipsis timestamp']");
+            var durationNodes = doc.DocumentNode.SelectNodes("//td/div[@class='wrapper ellipsis timestamp']");
             for (int i = 0; i < nameNodes.Count; i++)
             {
-                list.Add(new Song(nameNodes[i].InnerText, artistNodes[i].InnerText, albumNodes[i].InnerText, timeNodes[i].InnerText.Trim()));
+                list.Add(new Song(nameNodes[i].InnerText, artistNodes[i].InnerText, albumNodes[i].InnerText, durationNodes[i].InnerText.Trim()));
             }
             return list;
         }
