@@ -9,7 +9,7 @@ namespace Avalonia.Models
 {
     internal class SongList
     {
-        public static List<Song> GetList(int index) //TODO maybe singletone?
+        public static List<Song> GetList(int index)
         {
             List<Song> list = new List<Song>();
             HtmlWeb web;

@@ -10,10 +10,6 @@ namespace Avalonia.ViewModels
 {
     internal class MainWindowViewModel : ViewModel
     {
-        public MainWindowViewModel() 
-        {
-            //ChangePlaylistButton = new RelayCommand(OnChangePlaylistButtonExecute, CanChangePlaylistButtonExecute);
-        }
         private string _Title = "Avalonia";
         public string Title
         {
@@ -55,11 +51,5 @@ namespace Avalonia.ViewModels
                 OnPropertyChanged();
             }
         }
-        public RelayCommand ChangePlaylistButton { get; }
-       /* private bool CanChangePlaylistButtonExecute(object arg) => true;
-        private void OnChangePlaylistButtonExecute(object obj)
-        {
-            OnPropertyChanged();
-        }*/
     }
 }

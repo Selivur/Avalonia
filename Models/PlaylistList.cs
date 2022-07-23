@@ -8,7 +8,7 @@ namespace Avalonia.Models
 {
     internal class PlaylistList
     {
-        public static List<PlaylistData> GetList() //TODO maybe singletone?
+        public static List<PlaylistData> GetList() 
         {
             List<PlaylistData> list = new List<PlaylistData>();
             list.Add(new PlaylistData("https://www.deezer.com/en/playlist/1479458365"));

@@ -4,11 +4,9 @@ C:\Users\si010\source\repos\Avalonia\bin\Debug\net6.0-windows\Avalonia.runtimeco
 C:\Users\si010\source\repos\Avalonia\bin\Debug\net6.0-windows\Avalonia.dll
 C:\Users\si010\source\repos\Avalonia\bin\Debug\net6.0-windows\Avalonia.pdb
 C:\Users\si010\source\repos\Avalonia\obj\Debug\net6.0-windows\Avalonia.csproj.AssemblyReference.cache
-C:\Users\si010\source\repos\Avalonia\obj\Debug\net6.0-windows\MainWindow.g.cs
 C:\Users\si010\source\repos\Avalonia\obj\Debug\net6.0-windows\App.g.cs
 C:\Users\si010\source\repos\Avalonia\obj\Debug\net6.0-windows\Avalonia_MarkupCompile.cache
 C:\Users\si010\source\repos\Avalonia\obj\Debug\net6.0-windows\Avalonia_MarkupCompile.lref
-C:\Users\si010\source\repos\Avalonia\obj\Debug\net6.0-windows\MainWindow.baml
 C:\Users\si010\source\repos\Avalonia\obj\Debug\net6.0-windows\Avalonia.g.resources
 C:\Users\si010\source\repos\Avalonia\obj\Debug\net6.0-windows\Avalonia.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\si010\source\repos\Avalonia\obj\Debug\net6.0-windows\Avalonia.AssemblyInfoInputs.cache
@@ -22,3 +20,5 @@ C:\Users\si010\source\repos\Avalonia\obj\Debug\net6.0-windows\ref\Avalonia.dll
 C:\Users\si010\source\repos\Avalonia\bin\Debug\net6.0-windows\HtmlAgilityPack.dll
 C:\Users\si010\source\repos\Avalonia\obj\Debug\net6.0-windows\Avalonia.csproj.CopyComplete
 C:\Users\si010\source\repos\Avalonia\bin\Debug\net6.0-windows\JetBrains.Annotations.dll
+C:\Users\si010\source\repos\Avalonia\obj\Debug\net6.0-windows\Views\MainWindow.g.cs
+C:\Users\si010\source\repos\Avalonia\obj\Debug\net6.0-windows\Views\MainWindow.baml
