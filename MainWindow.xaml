@@ -61,7 +61,5 @@
                 </DataTemplate>
             </ListBox.Resources>
         </ListBox>
-        
-
     </Grid>
 </Window>
